@@ -26,4 +26,9 @@ public class Context : IdentityDbContext<IdentityUser>
 
     public DbSet<Email> Email { get; set; }
 
+    public DbSet<City> City { get; set; }
+
+    public DbSet<Property> Property { get; set; }
+
+    public DbSet<Apartment> Apartment { get; set; }
 }
