@@ -39,10 +39,21 @@ public class CityController : ControllerBase
             .Where(x => x.CityName == city)
             .ToList();
 
-
-
-
         return cities;
+    }
+
+    [HttpPost]
+    public IActionResult SaveCity(CreateCityDto cityName)
+    {
+        var newCity = new City
+        {
+            CityName = cityName.CityName,
+        };
+
+        var city = context.City.Add(newCity);
+        context.SaveChanges();
+
+        return Created("", null);
     }
 
 
@@ -61,4 +72,9 @@ public class PropertyDto
     public string Name { get; set; }
     public City City { get; set; }
     //public List<Apartment> Apartments { get; set; }
+}
+
+public class CreateCityDto
+{
+    public string CityName { get; set; }
 }

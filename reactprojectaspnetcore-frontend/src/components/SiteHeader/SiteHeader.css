@@ -1,0 +1,13 @@
+.navbar {
+  height: 80px;
+}
+
+.main-logo {
+  max-height: 75px;
+  width: auto;
+}
+
+.main-title {
+  font-size: 48px;
+  font-family: 'Fredoka One';
+}
