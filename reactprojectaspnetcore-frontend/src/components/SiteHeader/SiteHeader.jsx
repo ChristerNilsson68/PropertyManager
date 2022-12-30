@@ -9,7 +9,7 @@ const SiteHeader = () => {
           <div className="container-fluid">
             <img
               className="col-2 me-3 main-logo"
-              src="./../../../public/logo.png"
+              src="logo.png"
               alt="Logo for company"
             />
             <h1 className="navbar-brand text-white main-title">
