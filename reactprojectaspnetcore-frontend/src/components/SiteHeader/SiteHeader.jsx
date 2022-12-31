@@ -1,4 +1,5 @@
-import { Link } from 'react';
+import { Link } from 'react-router-dom';
+import SiteHeaderIcons from '../SiteHeaderIcons/SiteHeaderIcons';
 import './SiteHeader.css';
 
 const SiteHeader = () => {
@@ -16,7 +17,8 @@ const SiteHeader = () => {
               Fastighetsservice
             </h1>
             {/* Login/Siteheader komponent goes here */}
-            <i className="bi bi-person text-white fs-4"></i>
+            <SiteHeaderIcons />
+            {/* <i className="bi bi-person text-white fs-4"></i> */}
           </div>
         </nav>
       </header>
