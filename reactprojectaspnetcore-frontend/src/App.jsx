@@ -10,10 +10,10 @@ import Home from './Routes/Home/Home';
 
 const App = () => {
   const [global, setGlobal] = useState(null);
-  const { setCurrentUser } = useContext(UserContext);
+  const { setToken } = useContext(UserContext);
 
   useEffect(() => {
-    setCurrentUser(null);
+    setToken(null);
   }, []);
 
   return (

@@ -5,10 +5,10 @@ import axios from 'axios';
 import { UserContext } from '../../Context/User.Context';
 
 const Login = () => {
-  const { setCurrentUser } = useContext(UserContext);
+  const { setToken } = useContext(UserContext);
 
   const [formFields, setFormFields] = useState({
-    email: '',
+    userName: '',
     password: '',
   });
 
@@ -19,35 +19,31 @@ const Login = () => {
 
     const user = { ...formFields };
 
-    axios.post(`http://localhost:5000/customers/${user.email}`).then((resp) => {
-      if (formFields.password === resp.data.password) {
-        console.log('Success!');
-
-        const loggedInUser = {
-          firstName: resp.data.firstName,
-          lastName: resp.data.lastName,
-          email: resp.data.email,
-        };
-        setCurrentUser(loggedInUser);
+    axios
+      .post('https://localhost:5000/api/auth', user)
+      .then((resp) => {
+        setToken(resp.data);
+        // console.log(resp.data);
+        console.log("You're now logged in!");
 
         resetForm();
         // navigate('/minasidor', { state: { email: user.email } });
-      } else {
-        alert('E-post och/eller lösenord är fel!');
-      }
-    });
+      })
+      .catch((err) => {
+        console.log('Error');
+      });
   };
 
   const resetForm = () =>
     setFormFields({
-      email: '',
+      userName: '',
       password: '',
     });
 
-  const updateEmail = (event) =>
+  const updateUserName = (event) =>
     setFormFields((values) => ({
       ...values, // formFields
-      email: event.target.value,
+      userName: event.target.value,
     }));
 
   const updatePassword = (event) =>
@@ -62,15 +58,15 @@ const Login = () => {
         <h1 className="mb-4">Logga in</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="email" className="form-label">
+            <label htmlFor="userName" className="form-label">
               E-post
             </label>
             <input
               type="text"
               className="form-control"
-              id="email"
-              value={formFields.email}
-              onChange={updateEmail}
+              id="userName"
+              value={formFields.userName}
+              onChange={updateUserName}
             />
           </div>
           <div className="mb-3">

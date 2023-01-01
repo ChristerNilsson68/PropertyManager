@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/User.Context';
 
 const SiteHeaderIcons = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { token, setToken } = useContext(UserContext);
 
-  const logout = () => setCurrentUser(null);
+  const logout = () => setToken(null);
 
   // if (currentUser == null) {
   //   return (

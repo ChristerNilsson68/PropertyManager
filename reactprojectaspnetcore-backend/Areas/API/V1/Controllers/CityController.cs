@@ -1,12 +1,18 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using reactprojectaspnetcore_backend.Data;
 using reactprojectaspnetcore_backend.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 
-namespace reactprojectaspnetcore_backend.Controllers;
+namespace reactprojectaspnetcore_backend.Areas.API.V1.Controllers;
 
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme,
+    Roles = "Administrator")]
+[Area("API")]
 [Route("api/[controller]")]
 [ApiController]
 public class CityController : ControllerBase
