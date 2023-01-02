@@ -1,4 +1,4 @@
-import { Link } from 'react';
+import SiteHeaderIcons from '../SiteHeaderIcons/SiteHeaderIcons';
 import './SiteHeader.css';
 
 const SiteHeader = () => {
@@ -12,11 +12,12 @@ const SiteHeader = () => {
               src="logo.png"
               alt="Logo for company"
             />
-            <h1 className="navbar-brand text-white main-title">
+            <h1 className="navbar-brand col-9 text-center text-white main-title">
               Fastighetsservice
             </h1>
-            {/* Login/Siteheader komponent goes here */}
-            <i className="bi bi-person text-white fs-4"></i>
+            <span className="navbar col">
+              <SiteHeaderIcons />
+            </span>
           </div>
         </nav>
       </header>

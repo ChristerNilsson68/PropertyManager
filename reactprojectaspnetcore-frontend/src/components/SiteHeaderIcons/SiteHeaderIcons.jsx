@@ -1,49 +1,56 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/User.Context';
+import Login from '../Login/Login';
 
 const SiteHeaderIcons = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { token, setToken } = useContext(UserContext);
 
-  const logout = () => setCurrentUser(null);
+  const logout = () => setToken(null);
 
-  if (currentUser == null) {
+  if (token == null) {
     return (
       <>
-        <div className="col text-end align-middle">
-          <Link className="text-dark text-decoration-none me-3" to="/checkout/">
-            <i className="fs-3 bi bi-basket-fill "></i>
-          </Link>
-          <Link
-            className="text-dark col text-decoration-none me-3"
-            to="/login/"
-          >
-            <i className="fs-3 bi bi-box-arrow-in-right"></i>
-          </Link>
+        <span
+          className="btn dropdown-toggle"
+          role="button"
+          id="dropdownMenuLink"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i className="bi bi-person text-white fs-2"></i>
+        </span>
+        <div
+          className="dropdown-menu dropdown-menu-right p-4"
+          aria-labelledby="dropdownMenuLink"
+        >
+          <Login />
         </div>
       </>
     );
   } else {
     return (
       <>
-        <Link
-          class="btn dropdown-toggle"
-          to="#"
+        <span
+          className="btn dropdown-toggle text-white text-end"
           role="button"
-          id="dropdownMenuLink"
+          id="dropdownMenuLoggedIn"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           Administration
-        </Link>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        </span>
+        <ul
+          className="dropdown-menu dropdown-menu-right"
+          aria-labelledby="dropdownMenuLoggedIn"
+        >
           <li>
-            <Link class="dropdown-item" to="/admin">
+            <Link className="dropdown-item" to="/">
               Admin
             </Link>
           </li>
           <li>
-            <Link class="dropdown-item" to="/Account/Logout">
+            <Link className="dropdown-item" to="/">
               Logga ut
             </Link>
           </li>

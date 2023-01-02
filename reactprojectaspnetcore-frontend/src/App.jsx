@@ -10,14 +10,11 @@ import Home from './Routes/Home/Home';
 
 const App = () => {
   const [global, setGlobal] = useState(null);
-  const { setCurrentUser } = useContext(UserContext);
+  const { setToken } = useContext(UserContext);
 
-  //   useEffect(() => {
-  //     setCurrentUser(null);
-  //     fetch('http://localhost:5000/pages/')
-  //       .then((resp) => resp.json())
-  //       .then((data) => setGlobal(data));
-  //   }, []);
+  useEffect(() => {
+    setToken(null);
+  }, []);
 
   return (
     <div className="App">
