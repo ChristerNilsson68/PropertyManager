@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import SiteHeaderIcons from '../SiteHeaderIcons/SiteHeaderIcons';
 import './SiteHeader.css';
 
@@ -16,9 +15,9 @@ const SiteHeader = () => {
             <h1 className="navbar-brand col-9 text-center text-white main-title">
               Fastighetsservice
             </h1>
-            {/* Login/Siteheader komponent goes here */}
-            <SiteHeaderIcons />
-            {/* <i className="bi bi-person text-white fs-4"></i> */}
+            <span className="navbar col">
+              <SiteHeaderIcons />
+            </span>
           </div>
         </nav>
       </header>
