@@ -21,7 +21,7 @@ const SiteHeaderIcons = () => {
           <i className="bi bi-person text-white fs-2"></i>
         </span>
         <div
-          className="dropdown-menu dropdown-menu-right p-4"
+          className="dropdown-menu dropdown-menu-end p-4"
           aria-labelledby="dropdownMenuLink"
         >
           <Login />
