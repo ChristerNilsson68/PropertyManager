@@ -1,5 +1,4 @@
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { UserContext } from '../../Context/User.Context';
@@ -17,17 +16,12 @@ const Login = () => {
 
     const user = { ...formFields };
 
-    axios
-      .post('https://localhost:5000/api/auth', user)
-      .then((resp) => {
-        setToken(resp.data);
-        // console.log("You're now logged in!");
+    axios.post('https://localhost:5000/api/auth', user).then((resp) => {
+      const response = resp.data.token;
+      setToken(response);
 
-        resetForm();
-      })
-      .catch((err) => {
-        alert('Angiven E-mail och lösenord matchar inte!');
-      });
+      resetForm();
+    });
   };
 
   const resetForm = () =>
@@ -87,5 +81,14 @@ const Login = () => {
     </>
   );
 };
+
+// const GetClaims = () => {
+//   const { token } = useContext(UserContext);
+
+//   const payload = token.split('.')[1];
+//   const dataToken = JSON.parse(atob(payload));
+//   const claims = dataToken.role;
+//   console.log(claims);
+// };
 
 export default Login;

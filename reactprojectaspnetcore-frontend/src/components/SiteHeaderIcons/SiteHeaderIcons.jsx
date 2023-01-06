@@ -5,8 +5,12 @@ import Login from '../Login/Login';
 
 const SiteHeaderIcons = () => {
   const { token, setToken } = useContext(UserContext);
+  const { setClaim } = useContext(UserContext);
 
-  const logout = () => setToken(null);
+  const logoutUser = () => {
+    setToken(null);
+    setClaim(null);
+  };
 
   if (token == null) {
     return (
@@ -21,7 +25,7 @@ const SiteHeaderIcons = () => {
           <i className="bi bi-person text-white fs-2"></i>
         </span>
         <div
-          className="dropdown-menu dropdown-menu-right p-4"
+          className="dropdown-menu dropdown-menu-end p-4"
           aria-labelledby="dropdownMenuLink"
         >
           <Login />
@@ -31,30 +35,29 @@ const SiteHeaderIcons = () => {
   } else {
     return (
       <>
-        <span
-          className="btn dropdown-toggle text-white text-end"
-          role="button"
-          id="dropdownMenuLoggedIn"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Administration
-        </span>
-        <ul
-          className="dropdown-menu dropdown-menu-right"
-          aria-labelledby="dropdownMenuLoggedIn"
-        >
-          <li>
-            <Link className="dropdown-item" to="/">
-              Admin
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item" to="/">
-              Logga ut
-            </Link>
-          </li>
-        </ul>
+        <div className="dropdown">
+          <span
+            className="btn dropdown-toggle text-white"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Administration
+          </span>
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li>
+              <Link className="dropdown-item" to="/person">
+                Personal
+              </Link>
+            </li>
+            <li>
+              <Link className="dropdown-item" to="/" onClick={logoutUser}>
+                Logga ut
+              </Link>
+            </li>
+          </ul>
+        </div>
       </>
     );
   }
