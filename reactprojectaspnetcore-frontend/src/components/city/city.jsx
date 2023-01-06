@@ -1,5 +1,5 @@
-const city = () => {
-  return <div>city</div>;
+const City = () => {
+  return <div>City</div>;
 };
 
-export default city;
+export default City;

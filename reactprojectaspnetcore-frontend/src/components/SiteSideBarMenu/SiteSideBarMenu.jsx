@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../Context/User.Context';
 
 const SiteSideBarMenu = () => {
@@ -65,7 +66,7 @@ const SiteSideBarMenu = () => {
                     aria-labelledby="panelsStayOpen-headingTwo"
                   >
                     <div className="accordion-body">
-                      <p>Anmälan</p>
+                      <Link to="/ErrorReporting">Anmälan</Link>
                       <p>Kvittering</p>
                       <p>Sök</p>
                     </div>

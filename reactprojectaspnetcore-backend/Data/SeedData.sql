@@ -6,9 +6,24 @@ SET @ROLEID = NEWID()
 DECLARE @STAMP UNIQUEIDENTIFIER
 SET @STAMP = NEWID()
 
-INSERT INTO AspNetRoles (Id,Name,NormalizedName,ConcurrencyStamp)
-VALUES
+INSERT INTO AspNetRoles (Id,Name,NormalizedName,ConcurrencyStamp) VALUES
 (@ROLEID,'Administrator','ADMINISTRATOR',@STAMP)
+
+SET @ROLEID = NEWID()
+SET @STAMP = NEWID()
+INSERT INTO AspNetRoles (Id,Name,NormalizedName,ConcurrencyStamp) VALUES
+(@ROLEID,'Employee','EMPLOYEE',@STAMP)
+
+SET @ROLEID = NEWID()
+SET @STAMP = NEWID()
+INSERT INTO AspNetRoles (Id,Name,NormalizedName,ConcurrencyStamp) VALUES
+(@ROLEID,'ServiceTekniker','SERVICETEKNIKER',@STAMP)
+
+SET @ROLEID = NEWID()
+SET @STAMP = NEWID()
+INSERT INTO AspNetRoles (Id,Name,NormalizedName,ConcurrencyStamp) VALUES
+(@ROLEID,'HyresAdmin','HYRESADMIN',@STAMP)
+
 
 DECLARE @USERID UNIQUEIDENTIFIER
 SET @USERID = NEWID()
