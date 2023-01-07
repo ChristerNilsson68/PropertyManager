@@ -69,7 +69,7 @@ public class AuthController : ControllerBase
             //NotBefore = DateTime.UtcNow.AddHours(1),
 
             // exp
-            Expires = DateTime.UtcNow.AddHours(2),
+            Expires = DateTime.UtcNow.AddHours(10),
 
             Subject = new ClaimsIdentity(claims)
         };
